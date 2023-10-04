@@ -1,15 +1,16 @@
 var maxProfit = function (prices) {
-  const num = prices.length;
-  let profitList = [];
+  let minPrice = prices[0];
+  let maxProfit = 0;
 
-  for (let i = 0; i < num; i++) {
-    for (let j = i + 1; j < num; j++) {
-      if (prices[j] - prices[i] > 0) profitList.push(prices[j] - prices[i]);
-    }
+  for (let i = 1; i < prices.length; i++) {
+    const currentPrice = prices[i];
+    const currentProfit = currentPrice - minPrice;
+
+    if (currentProfit > maxProfit) maxProfit = currentProfit;
+    if (minPrice > currentPrice) minPrice = currentPrice;
   }
 
-  if (profitList.length == 0) return 0;
-  else return Math.max(...profitList);
+  return maxProfit;
 };
 
 //

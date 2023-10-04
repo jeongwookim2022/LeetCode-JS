@@ -9,3 +9,19 @@ var maxProfit = function (prices) {
   }
   return profit;
 };
+
+// ANOTHER SOLUTION
+
+var maxProfit = function (prices) {
+  let minPrice = prices[0];
+  let profit = 0;
+
+  for (let i = 1; i < prices.length; i++) {
+    if (prices[i] - minPrice > 0) {
+      profit += prices[i] - minPrice;
+      if (i < prices.length) minPrice = prices[i];
+    } else minPrice = prices[i];
+  }
+
+  return profit;
+};
