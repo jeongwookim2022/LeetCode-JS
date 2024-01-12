@@ -5,12 +5,12 @@ var uniquePathsWithObstacles = function (obstacleGrid) {
   const ansList = Array.from(Array(m), () => Array(n).fill(0));
 
   for (let i = 0; i < m; i++) {
-    if (obstacleGrid[i][0] != 1) {
+    if (obstacleGrid[i][0] !== 1) {
       ansList[i][0] = 1;
     }
   }
   for (let j = 0; j < n; j++) {
-    if (obstacleGrid[0][j] != 1) {
+    if (obstacleGrid[0][j] !== 1) {
       ansList[0][j] = 1;
     }
   }
